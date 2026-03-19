@@ -5,6 +5,7 @@
 	padding: 20px;
 	background: #ffffff;
 	position: relative;
+	background-color: rgb(94, 164, 255);
 }
 
 .hamburger {
@@ -54,4 +55,8 @@
 	.nav a {
 		padding: 10px;
 	}
+}
+
+.photo{
+	width: 100%;
 }
