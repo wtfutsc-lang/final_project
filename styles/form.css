@@ -1,0 +1,19 @@
+.card{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    background: cornflowerblue;
+    padding: 20px;
+    justify-self:center ;
+    border-radius: 20px;
+}
+
+.card form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+body{
+    background: chartreuse;
+}
