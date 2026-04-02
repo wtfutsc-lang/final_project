@@ -1,19 +1,67 @@
+
+.section_form {
+    display: flex;
+    padding: 120px 20px;
+    justify-content: center;
+}
 .card{
     display: flex;
     flex-direction: column;
     width: 20%;
-    background: cornflowerblue;
-    padding: 20px;
+    background: rgb(255, 255, 255);
+    padding:40px 50px;
     justify-self:center ;
-    border-radius: 20px;
+    border-radius: 10px;
+    /* box-shadow: 11px 11px 50px rgb(63, 63, 63); */
 }
 
 .card form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    
+}
+
+.card h1{
+    text-align: center;
+}
+
+.card input{
+    border-radius:2px ;
+    height: 25px;
+    margin-bottom:8px;
 }
 
 body{
-    background: chartreuse;
+    background-image: url('../public/beckett-p-ze09IQjOZhk-unsplash.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    
+}
+
+.card button{
+    display: flex;
+    justify-content: center;
+    gap:15px;
+    color: white;
+    height: 35px;
+    font-size: 17px;
+    background: linear-gradient(90deg,rgba(111, 190, 222, 1) 0%, rgba(87, 199, 133, 1) 100%, rgba(103, 224, 216, 1) 100%);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.card button:hover{
+    background: linear-gradient(270deg, rgba(144, 65, 33, 1) 0%, rgba(168, 56, 122, 1) 100%, rgba(152, 31, 39, 1) 100%);
+    
+}
+
+.battons a{
+    text-decoration: none;
+    color: black;
+    padding: 1px 6px;
+    border-radius: 3px;
+    background-color: buttonface;
+    border:1px solid buttonborder;
 }
