@@ -1,62 +1,78 @@
-.header {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 20px;
-	background: #ffffff;
-	position: relative;
-	background-color: rgb(94, 164, 255);
+html, body{
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    position: relative;
+    
+}
+ul{
+    margin: 0;
+    padding: 0;
+}
+header{
+    width: 100%;
+    background-color: rgb(66, 69, 255);
+    position: fixed;
+    z-index: 1;
+}
+.container{
+    width: 100%;
+    max-width: 1320px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.list{
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+a{
+    color: white;
+    text-decoration: none;
 }
 
-.hamburger {
-	
-	background: rgb(154, 154, 253);
-	border-radius: 12px;
-	font-size: 24px;
-	cursor: pointer;
-	order: 1;
+.container li a{
+    display: block;
+    padding: 20px 15px;
+}
+ .list li a:hover{
+	text-decoration: underline;
+} 
+
+.logo{
+    font-size: 30px;
+    font-weight: 700;
+    color: #ffffff;
 }
 
-.nav {
-	display: flex;
-	gap: 20px;
+
+.section_banner {
+	background-image: url("../public/white-label-banner.webp");
+	height: 300px;
+	border-radius: 15px;
+	padding: 50px;
+	color:#fff;
+	width: 80%;
+	object-fit: cover;
 }
 
-.nav a {
-	text-decoration: none;
-	color: #333;
+.banner_title {
+	font-size: 35px;
 }
 
-@media (max-width: 768px) {
-	.hamburger {
-		display: block;
-		z-index: 1001;
-	}
-
-	.nav {
-		position: fixed;
-		top: 0;
-		right: -100%;
-		width: 80%;
-		height: 100vh;
-		background: #f8f8f8;
-		transition: right 0.3s;
-		z-index: 1000;
-		padding-top: 60px;
-		flex-direction: column;
-		gap: 15px;
-		padding: 60px 20px 20px;
-	}
-
-	.nav.active {
-		right: 0;
-	}
-
-	.nav a {
-		padding: 10px;
-	}
+.banner_description {
+	font-size: 20px;
 }
 
-.photo{
-	width: 100%;
+.banner_button {	
+	border-radius: 10px;
+	background-color: rgb(110, 21, 192);
+	color: #fff;
+	padding: 15px 20px;
+	width: 300px;
+
 }
