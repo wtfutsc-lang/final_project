@@ -6,33 +6,97 @@ html, body{
     position: relative;
     
 }
-ul{
-    margin: 0;
-    padding: 0;
-}
-header{
-    width: 100%;
-    background-color: rgb(66, 69, 255);
-    position: fixed;
-    z-index: 1;
+
+.navbar {
+  background-color: #241c4f; 
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 10px 50px;
+  justify-content: space-between;
 }
 
- .photo {
- 
-  top: 0;
-  left: 0;
-  width: 100%;    
-  height: auto;   
-  object-fit: cover;
+.navbar nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 14px;
 }
+.navbar nav a:hover{
+	text-decoration: underline;
+}
+
+.fon {
+  background: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+
+/* .search-container {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  width: 80%;
+  max-width: 1000px;
+}
+
+.tabs button {
+  background: none;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+}
+
+.tabs button.active {
+  border-bottom: 2px solid #e11684; 
+  color: #e11684;
+}
+
+.search-form {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.search-form input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.submit-btn {
+  background-color: #e11684;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+
+
+ 
+  
+  */
  
 .container{
-    width: 100%;
-    max-width: 1320px;
-    margin: 0 auto;
+ padding: 20px;
+    border-radius: 8px;
+     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    
+     width: 80%;
+  max-width: 1000px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background: white;
 }
 .list{
     display: flex;
@@ -88,7 +152,6 @@ header{
 form{
     width: 920px;
     margin: 20px;
-    padding: 70px 20px;
     background: #fff;
   }
   fieldset{
@@ -177,11 +240,6 @@ form{
     opacity: 0;
   }
   
-  .more-option{
-    border-bottom: 1px dotted #dcdcdc;
-    padding-bottom: 20px;
-  }
-
   .cards{
     display: flex;
     flex-wrap: wrap;
