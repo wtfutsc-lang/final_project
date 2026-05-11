@@ -1,0 +1,38 @@
+h1 {
+            text-align: center;
+            color: #0056b3;
+            text-transform: uppercase;
+           
+            margin-bottom: 40px;
+        }
+
+ 
+        .cards-container {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .card-text {
+            font-size: 14px;
+            text-align: justify;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+    

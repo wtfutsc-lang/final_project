@@ -1,0 +1,15 @@
+.info-section {
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+h1, h2, h3 {
+    color: #0056b3;
+    margin-top: 0;
+}
+
+.contact-info p {
+    margin: 5px 0;
+}
+
