@@ -40,7 +40,7 @@
 
 <div class="fon">
     <div class="container">
-          <form action="" method="post" class="trip-form">
+          <form action="/booking" method="post" onclick="createBooking()" class="trip-form">
             <fieldset class="radio-group">
 
              <label for="one-way" class="bold-type">
@@ -69,7 +69,7 @@
 
               <div class="group-field">
                 <label for="to" class="bold-type">To </label>
-                <select class="from-place" name="TO" maxlength="100" required>
+                <select class="from-place" id="to-place" name="TO" maxlength="100" required>
                   <option value="" disabled selected hidden>country </option>
                   <option value="minsk">minsk</option>
                   <option value="brest">brest</option>
@@ -83,12 +83,12 @@
 
               <div class="group-field">
                 <label for="depart" class="bold-type">Depart on</label>
-                <input placeholder="Pick a date" type="date" name="depart" />
+                <input placeholder="Pick a date" type="date" name="depart" id="depart" />
               </div>
 
               <div class="group-field">
                 <label for="return" class="bold-type">Return on</label>
-                <input placeholder="Pick a date" type="date" name="return" />
+                <input placeholder="Pick a date" type="date" name="return" id="return" />
               </div>
 
             </fieldset>
@@ -98,7 +98,7 @@
 
               <div class="group-select-field">
                 <label for="adults" class="bold-type">Adults</label> 
-                <select name="adults" class="ticket-count">
+                <select name="adults" class="ticket-count" id="adults">
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -109,7 +109,7 @@
 
                <div class="group-select-field">
                 <label for="children">Children</label>
-                 <select name="children" class="ticket-count">
+                 <select name="children" class="ticket-count" id="children">
                    <option value="0">0</option>
                    <option value="1">1</option>
                    <option value="2">2</option>
@@ -122,7 +122,7 @@
 
                <div class="group-select-field">
                 <label for="infants">Infants</label>
-                 <select name="children" class="ticket-count">
+                 <select name="children" class="ticket-count" id="infants">
                    <option value="0">0</option>
                    <option value="1">1</option>
                    <option value="2">2</option>
@@ -139,7 +139,7 @@
             <fieldset class="more-option">
                  <div class="group-field">
                 <label for="class-of-travel">Class of travel</label>
-                <select name="class-of-travel" class="travel-class-select">
+                <select name="class-of-travel" class="travel-class-select" id="plane-class">
                   <option value="economy">Economy</option>
                   <option value="business">Business class</option>
                   <option value="firstClass">First class</option>

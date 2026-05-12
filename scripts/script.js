@@ -1,31 +1,92 @@
 
 const form = document.querySelector('.trip-form');
-
+const tripType = document.getElementById("one-way");
+const roundTrip = document.getElementById("round-trip");
+const from = document.querySelector(".from-place");
+const to = document.getElementById("to-place");
+const depart = document.getElementById("depart");
+const backDestination = document.getElementById("return");
+const adults = document.getElementById("adults");
+const children = document.getElementById("children");
+const infants = document.getElementById("infants");
+const planeClass = document.getElementById("plane-class");
 
 form.addEventListener("submit", async (e) => { 
     e.preventDefault();
 
-    const fd = new FormData(form);
+    // const fd = new FormData(form);
     
+    
+    // const payload = {
+    //     tripType: tripType.value,
+    //     roundTrip: roundTrip.value,
+    //     from: from.value,
+    //     to: to.value,
+    //     depart: depart.value,
+    //     backDestination: backDestination.value,
+    //     adults: adults.value,
+    //     children: children.value,
+    //     infants: Number(fd.get("infants")), 
+    //     planeClass: planeClass.value
+    // };
+
+});
+
+
+async function createBooking() {
+    const url = '/booking';
     
     const payload = {
-        tripType: fd.get("trip-type"),
-        from: fd.get("from"),
-        to: fd.get("to"),
-        depart: fd.get("depart"),
-        return: fd.get("return"),
-        adults: Number(fd.get("adults")),
-        children: Number(fd.get("children")),
+        tripType: tripType.value,
+        roundTrip: roundTrip.value,
+        from: from.value,
+        to: to.value,
+        depart: depart.value,
+        backDestination: backDestination.value,
+        adults: adults.value,
+        children: children.value,
         infants: Number(fd.get("infants")), 
-        class: fd.get("class-of-travel")
+        planeClass: planeClass.value
     };
 
-        //     const r = await fetch("/", {
+    console.log('Check payload data:', payload);
+
+    try {
+      const response = await fetch(url, {
+        method: 'POST', 
+        headers: {
+          'Content-Type': 'application/json' 
+        },
+        body: JSON.stringify(payload) 
+      });
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+  
+      const result = await response.json(); 
+      console.log('Success:', result);
+    } catch (error) {
+      console.error('Error:', error); 
+    }
+  }
+//example GET-request
+async function getData() {
+    const url = "https://example.org/products.json";
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`Response status: ${response.status}`);
+      }
+  
+      const result = await response.json();
+      console.log(result);
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+  //     const r = await fetch("/", {
         //     method: "POST",
         //     headers: { "Content-Type": "application/json" },
         //     body: JSON.stringify(payload), 
         // });
-    console.log("формa:", payload);
-   
-});
-  

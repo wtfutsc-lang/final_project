@@ -11,7 +11,7 @@
     padding:40px 50px;
     justify-self:center ;
     border-radius: 10px;
-    /* box-shadow: 11px 11px 50px rgb(63, 63, 63); */
+     box-shadow: 11px 11px 50px rgb(63, 63, 63); 
 }
 
 .card form {
