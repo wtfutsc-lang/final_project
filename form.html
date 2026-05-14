@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -8,22 +8,22 @@
     <section class="section_form">
       <div class="card">
        <h1>create accaunt</h1>
-       <form class="userForm">
+       <form class="userForm" method="POST" onclick="registration()">
         
         <lable>name</lable>
-        <input name="name" type="text" placeholder="name" required />
+        <input name="name" type="text" placeholder="name" required id="name" />
 
         <lable>surname</lable>
-        <input name="surname" type="text" placeholder="surname"/>
+        <input name="surname" type="text" placeholder="surname" id="surname"/>
 
         <lable>email</lable>
-        <input name="email" type="email" placeholder="email" required />
+        <input name="email" type="email" placeholder="email" required id="email"/>
 
         <lable>password</lable>
-        <input name="password" type="password" placeholder="password" required />
+        <input name="password" type="password" placeholder="password" required id="password"/>
 
         <lable>coniform password</lable>
-        <input name="coniformPassword" type="password" placeholder="password" required />
+        <input name="coniformPassword" type="password" placeholder="password" required id="coniform_password"/>
 
         
         <button type="submit">sign up</button>
