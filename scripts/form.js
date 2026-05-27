@@ -1,56 +1,31 @@
-const registration = async (event) => {
+const form = document.querySelector(".userForm");
+const name = document.getElementById("name");
+const surname = document.getElementById("surname");
+const email = document.getElementById("email");
+const password = document.getElementById("password");
+const confirmPassword = document.getElementById("coniform_password");
+
+
+  
+
+  form.addEventListener("submit", (event) => {
+
     event.preventDefault();
-  
-    
-    const name = document.getElementById("name").value;
-    const surname = document.getElementById("surname").value;
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-    const confirmPassword = document.getElementById("coniform_password").value;
-  
-   
-    if (password !== confirmPassword ) {
+    if (password.value !== confirmPassword.value) {
       alert("Пароли не совпадают!");
-      return;
+      return; 
     }
 
-    if (password.length < 8 ) {
-        alert("Пароль слишком короткий!");
-        return;
-      }
-      try {
-        const response = await fetch("/registration", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            name,
-            surname,
-            email,
-            password,
-            confirmPassword
-          }),
-        });
+    const userData = {
+      name: name.value,
+      surname: surname.value,
+      email: email.value,
+      password: password.value 
+    };
+    console.log(userData);
     
-  
-    const data = await response.json();
-  
-    console.log(data);
-  
-   
-    if (!response.ok) {
-     throw new Error(data.message);
-    }
-    alert("Регистрация успешна");
+    localStorage.setItem(email.value, JSON.stringify(userData));
 
-} catch (error) {
-  console.error(error);
-  alert("Ошибка регистрации");
-}
-};
-
-  document
-    .querySelector(".userForm")
-    .addEventListener("submit", registration);
-  
+    alert("Регистрация успешна!");
+    window.location.href = 'index.html';
+  });

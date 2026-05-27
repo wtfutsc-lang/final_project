@@ -13,3 +13,26 @@ h1, h2, h3 {
     margin: 5px 0;
 }
 
+@media (max-width: 768px) {
+    body {
+        padding: 12px; 
+    }
+
+    .info-section {
+        padding: 20px; 
+        margin-bottom: 12px;
+    }
+
+    h1 {
+        font-size: 22px; 
+    }
+
+    h2 {
+        font-size: 18px; 
+    }
+    
+    p, li {
+        font-size: 15px; 
+    }
+}
+

@@ -8,7 +8,7 @@
         }
 
         .title {
-            color: #071c7d; /* Темно-синий цвет как на скриншоте */
+            color: #071c7d; 
             font-size: 24px;
             margin-bottom: 40px;
             border-bottom: 2px solid #eee;
@@ -19,6 +19,7 @@
             display: flex;
             justify-content: space-between;
             gap: 20px;
+            flex-wrap: wrap;
         }
 
         .item {
@@ -30,7 +31,7 @@
         }
 
         .item img {
-            height: 80px; /* Размер иконки */
+            height: 80px; 
             margin-bottom: 20px;
         }
 
@@ -48,4 +49,32 @@
             margin: 5px 0;
         }
 
-     
+     @media (max-width: 768px) {
+    body {
+        padding: 10px; 
+    }
+
+    .baggage-section {
+        padding: 20px; 
+    }
+
+    .title {
+        font-size: 20px; 
+        margin-bottom: 25px;
+        text-align: center; 
+    }
+
+    .container {
+        flex-direction: column; 
+        gap: 35px; 
+    }
+
+    .item {
+        width: 100%;
+    }
+    
+    .item h3 {
+        min-height: auto; 
+        margin-bottom: 10px;
+    }
+}

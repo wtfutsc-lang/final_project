@@ -1,368 +1,205 @@
+
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="./styles/style.css" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wizz Air Booking</title>
+  <link rel="stylesheet" href="./styles/style.css" />
+</head>
+<body>
+
+
   <header class="navbar">
     <div class="logo">WIZZ</div>
-    <nav>
-        <a href="#">План</a>
-        <a href="#">Отели</a>
-        <a href="#">Авто</a>
-    </nav>
     <div class="auth">
-        <button class="login-btn">Войти</button>
+      <a href="./formSignIn.html">Войти</a>
     </div>
-</header>
+  </header>
 
-
-  <body>
-     <!-- <div class="search-container">
-          <div class="tabs">
-              <button class="active">Рейсы</button>
-          </div>
-          <div class="search-form">
-              <input type="text" placeholder="Пункт вылета">
-              <input type="text" placeholder="Пункт назначения">
-              <input type="date" value="2026-04-17">
-              <button class="submit-btn">Начать бронирование</button>
-          </div>
-      </div>-->
-    
-
-    <!-- <section class="section_banner">
-      <h2 class="banner_title">title</h2>
-      <p class="banner_description">description</p>
-      <a class="banner_button">link</a>
-    </section> -->
-
-
+  <main>
 <div class="fon">
-    <div class="container">
-          <form action="/booking" method="post" onclick="createBooking()" class="trip-form">
-            <fieldset class="radio-group">
+<div class="container">
+       
+<form  method="post"  class="trip-form">   
+  <fieldset class="form-grid-2x">
+    <div class="group-field">
+      <label for="from" class="bold-type">From</label>
+      <select id="from" class="from-place" name="from" required>
+        <option value="" disabled selected hidden>country</option>
+        <option value="minsk">minsk</option>
+        <option value="brest">krakov</option>
+        <option value="brest">tallin</option>
+      </select>
+    </div>
 
-             <label for="one-way" class="bold-type">
-               <input type="radio" id="one-way" name="trip-type" value="oneWay" />
-               One Way 
-            </label>
+    <div class="group-field">
+      <label for="to-place" class="bold-type">To</label>
+      <select class="from-place" id="to-place" name="to" required>
+        <option value="" disabled selected hidden>country</option>
+        <option value="minsk">minsk</option>
+        <option value="brest">krakov</option>
+        <option value="brest">tallin</option>
+      </select>
+    </div>
+  </fieldset>
 
-            <label for="round-trip" class="bold-type">
-              <input type="radio" id="round-trip" name="trip-type" value="roundTrip" checked="checked" />
-              Round trip
-            </label>
+  <fieldset class="form-grid-2x">
+    <div class="group-field">
+      <label for="depart" class="bold-type">Depart on</label>
+      <input placeholder="Pick a date" type="date" name="depart" id="depart" />
+    </div>
 
-          </fieldset>
+    <div class="group-field">
+      <label for="return" class="bold-type">Return on</label>
+      <input placeholder="Pick a date" type="date" name="return" id="return" />
+    </div>
+  </fieldset>
+  
+  <fieldset class="form-grid-passengers">
+    <div class="group-select-field">
+      <label for="adults" class="bold-type">Adults</label> 
+      <select name="adults" class="ticket-count" id="adults">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+    </div>
 
-            
-            <fieldset>
+    <div class="group-select-field">
+      <label for="children" class="bold-type">Children <span class="label-hint">(2-11 yrs)</span></label>
+      <select name="children" class="ticket-count" id="children">
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+    </div>
 
-              <div class="group-field">
-                <label for="from" class="bold-type">From </label>
-                <select class="from-place" name="from" maxlength="100" required>
-                  <option value="" disabled selected hidden>country </option>
-                  <option value="minsk">minsk</option>
-                  <option value="brest">brest</option>
-                </select>
-              </div>
+    <div class="group-select-field">
+      <label for="infants" class="bold-type">Infants <span class="label-hint">(Below 2 yrs)</span></label>
+      <select name="infants" class="ticket-count" id="infants">
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+    </div>
+  </fieldset>
 
-              <div class="group-field">
-                <label for="to" class="bold-type">To </label>
-                <select class="from-place" id="to-place" name="TO" maxlength="100" required>
-                  <option value="" disabled selected hidden>country </option>
-                  <option value="minsk">minsk</option>
-                  <option value="brest">brest</option>
-                </select>
-              </div>
-
-            </fieldset>
-
-
-            <fieldset>
-
-              <div class="group-field">
-                <label for="depart" class="bold-type">Depart on</label>
-                <input placeholder="Pick a date" type="date" name="depart" id="depart" />
-              </div>
-
-              <div class="group-field">
-                <label for="return" class="bold-type">Return on</label>
-                <input placeholder="Pick a date" type="date" name="return" id="return" />
-              </div>
-
-            </fieldset>
-
-            
-            <fieldset>
-
-              <div class="group-select-field">
-                <label for="adults" class="bold-type">Adults</label> 
-                <select name="adults" class="ticket-count" id="adults">
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">3</option>
-                  <option value="5">3</option>
-                </select>
-              </div>
-
-               <div class="group-select-field">
-                <label for="children">Children</label>
-                 <select name="children" class="ticket-count" id="children">
-                   <option value="0">0</option>
-                   <option value="1">1</option>
-                   <option value="2">2</option>
-                   <option value="3">3</option>
-                   <option value="4">3</option>
-                   <option value="5">3</option>
-                 </select>
-                 <label class="label-hint"> 2&hyphen;11 years</label>
-              </div>
-
-               <div class="group-select-field">
-                <label for="infants">Infants</label>
-                 <select name="children" class="ticket-count" id="infants">
-                   <option value="0">0</option>
-                   <option value="1">1</option>
-                   <option value="2">2</option>
-                   <option value="3">3</option>
-                   <option value="4">3</option>
-                   <option value="5">3</option>
-                 </select>
-                 <label class="label-hint">Below 2 yrs</label>
-              </div>
-
-            </fieldset>
-
-
-            <fieldset class="more-option">
-                 <div class="group-field">
-                <label for="class-of-travel">Class of travel</label>
-                <select name="class-of-travel" class="travel-class-select" id="plane-class">
-                  <option value="economy">Economy</option>
-                  <option value="business">Business class</option>
-                  <option value="firstClass">First class</option>
-                </select>
-              </div>
-            </fieldset>
-            
-            <input class="search-btn" type="submit" value="Search flights"/>
-          </form>
+  <fieldset class="more-option">
+    <div class="group-field">
+      <label for="plane-class" class="bold-type">Class of travel</label>
+      <select name="class-of-travel" class="travel-class-select" id="plane-class">
+        <option value="economy">Economy</option>
+        <option value="business">Business class</option>
+        <option value="firstClass">First class</option>
+      </select>
+    </div>
+  </fieldset>
+  
+  <div class="form-footer">
+    <input class="search-btn" type="submit" value="Search flights"/>
   </div>
-</div>
-
-<!-- <div class="wrapper">
-	<div class="outer">
-		<div class="content">
-			<span class="bg">NEW</span>
-			<h1>Minsk<br/> Belarus</h1>
-			<p>Very informative sentenses about minsk.</p>
-			
-			<div class="button">
-				<a class="cart-btn" href="#">ADD TO CArzina</a>
-			</div>
-			
-		</div>
-		<img src="./public/beckett-p-ze09IQjOZhk-unsplash.jpg"  class="fadeInRight">
-	</div>
-</div> -->
-<div class="flex-wrapper">
-
-<div class="card-container">
-  <div class="card">
-    <div class="card-image">
-      <img src="./public/beckett-p-ze09IQjOZhk-unsplash.jpg" alt="Minsk">
-      <span class="badge">NEW</span>
-    </div>
-    <div class="card-content">
-      <div class="card-header">
-        <h2>Minsk</h2>
-        <span class="country">Belarus</span>
-      </div>
-      <p>Very informative sentensive about minsk.</p>
-      <div class="card-footer">
-        <span class="price">$450</span>
-        <button class="buy-btn">AD</button>
+</form>
       </div>
     </div>
-  </div>
-</div>
 
-
-<div class="card-container">
-  <div class="card">
-    <div class="card-image">
-      <img src="./public/beckett-p-ze09IQjOZhk-unsplash.jpg" alt="Minsk">
-      <span class="badge">NEW</span>
-    </div>
-    <div class="card-content">
-      <div class="card-header">
-        <h2>Minsk</h2>
-        <span class="country">Belarus</span>
+    <div class="flex-wrapper">
+      
+      <div class="card-container">
+        <div class="card">
+          <div class="card-image">
+            <img src="./public/tal.jpg" alt="Minsk">
+            <span class="badge">NEW</span>
+          </div>
+          <div class="card-content">
+            <div class="card-header">
+              <h2>Tallin</h2>
+              <span class="country">Estonia</span>
+            </div>
+            <p>Very informative sentence about Minsk.</p>
+            <div class="card-footer">
+              <span class="price">$450</span>
+              <a href="cities.html?name=tallinn" class="buy-btn" style="text-decoration: none;">more</a>
+            </div>
+          </div>
+        </div>
       </div>
-      <p>Very informative sentensive about minsk.</p>
-      <div class="card-footer">
-        <span class="price">$450</span>
-        <button class="buy-btn">AD</button>
+
+    
+      <div class="card-container">
+        <div class="card">
+          <div class="card-image">
+            <img src="./public/krakov1.jpg" alt="Minsk">
+            <span class="badge">NEW</span>
+          </div>
+          <div class="card-content">
+            <div class="card-header">
+              <h2>Krakov</h2>
+              <span class="country">Poland</span>
+            </div>
+            <p>Very informative sentence about Krakov.</p>
+            <div class="card-footer">
+              <span class="price">$450</span>
+              <a href="cities.html?name=krakow" class="buy-btn" style="text-decoration: none;">more</a>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</div>
 
-
-<div class="card-container">
-  <div class="card">
-    <div class="card-image">
-      <img src="./public/beckett-p-ze09IQjOZhk-unsplash.jpg" alt="Minsk">
-      <span class="badge">NEW</span>
-    </div>
-    <div class="card-content">
-      <div class="card-header">
-        <h2>Minsk</h2>
-        <span class="country">Belarus</span>
+      
+      <div class="card-container">
+        <div class="card">
+          <div class="card-image">
+            <img src="./public/minsk1.jpg" alt="Minsk">
+            <span class="badge">NEW</span>
+          </div>
+          <div class="card-content">
+            <div class="card-header">
+              <h2>Minsk</h2>
+              <span class="country">Belarus</span>
+            </div>
+            <p>The capital of Belarus.</p>
+            <div class="card-footer">
+              <span class="price">$450</span>
+              <a href="cities.html?name=minsk" class="buy-btn" style="text-decoration: none;">more</a>
+            </div>
+          </div>
+        </div>
       </div>
-      <p>Very informative sentensive about minsk.</p>
-      <div class="card-footer">
-        <span class="price">$450</span>
-        <button class="buy-btn">AD</button>
-      </div>
+
+
     </div>
-  </div>
-</div>
+  </main>
 
 
-<div class="card-container">
-  <div class="card">
-    <div class="card-image">
-      <img src="./public/beckett-p-ze09IQjOZhk-unsplash.jpg" alt="Minsk">
-      <span class="badge">NEW</span>
-    </div>
-    <div class="card-content">
-      <div class="card-header">
-        <h2>Minsk</h2>
-        <span class="country">Belarus</span>
-      </div>
-      <p>Very informative sentensive about minsk.</p>
-      <div class="card-footer">
-        <span class="price">$450</span>
-        <button class="buy-btn">AD</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card-container">
-  <div class="card">
-    <div class="card-image">
-      <img src="./public/beckett-p-ze09IQjOZhk-unsplash.jpg" alt="Minsk">
-      <span class="badge">NEW</span>
-    </div>
-    <div class="card-content">
-      <div class="card-header">
-        <h2>Minsk</h2>
-        <span class="country">Belarus</span>
-      </div>
-      <p>Very informative sentensive about minsk.</p>
-      <div class="card-footer">
-        <span class="price">$450</span>
-        <button class="buy-btn">AD</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="card-container">
-  <div class="card">
-    <div class="card-image">
-      <img src="./public/beckett-p-ze09IQjOZhk-unsplash.jpg" alt="Minsk">
-      <span class="badge">NEW</span>
-    </div>
-    <div class="card-content">
-      <div class="card-header">
-        <h2>Minsk</h2>
-        <span class="country">Belarus</span>
-      </div>
-      <p>Very informative sentensive about minsk.</p>
-      <div class="card-footer">
-        <span class="price">$450</span>
-        <button class="buy-btn">AD</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="card-container">
-  <div class="card">
-    <div class="card-image">
-      <img src="./public/beckett-p-ze09IQjOZhk-unsplash.jpg" alt="Minsk">
-      <span class="badge">NEW</span>
-    </div>
-    <div class="card-content">
-      <div class="card-header">
-        <h2>Minsk</h2>
-        <span class="country">Belarus</span>
-      </div>
-      <p>Very informative sentensive about minsk.</p>
-      <div class="card-footer">
-        <span class="price">$450</span>
-        <button class="buy-btn">AD</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="card-container">
-  <div class="card">
-    <div class="card-image">
-      <img src="./public/beckett-p-ze09IQjOZhk-unsplash.jpg" alt="Minsk">
-      <span class="badge">NEW</span>
-    </div>
-    <div class="card-content">
-      <div class="card-header">
-        <h2>Minsk</h2>
-        <span class="country">Belarus</span>
-      </div>
-      <p>Very informative sentensive about minsk.</p>
-      <div class="card-footer">
-        <span class="price">$450</span>
-        <button class="buy-btn">AD</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-</div>
-
-
-  <script src="./scripts/script.js"></script>
-  </body>
   <footer class="main-footer">
     <div class="footer-container">
-        <div class="footer-column">
-            <h4>Wizz Air</h4>
-            <a href="#">О нас</a>
-            <a href="#">Вакансии</a>
-           
+      <div class="footer-column">
+        <h4>Wizz Air</h4>
+        <a href="./about_us.html">О нас</a>
+        <a href="./vacancy.html">Вакансии</a>
+      </div>
+      <div class="footer-column">
+        <h4>Услуги</h4>
+        <a href="./form.html">Регистрация</a>
+        <a href="./baggage.html">Багаж</a>
+      </div>
+      <div class="footer-social">
+        <p>Следите за нами:</p>
+        <div class="social-icons">
+          <a href="https://www.youtube.com/c/WizzAir">FB</a>
         </div>
-        <div class="footer-column">
-            <h4>Услуги</h4>
-            <a href="#">Регистрация</a>
-            <a href="#">Багаж</a>
-         
-        </div>
-        <div class="footer-social">
-            <p>Следите за нами:</p>
-            <div class="social-icons">
-                <span>FB</span> <span>IG</span> <span>TW</span>
-            </div>
-        </div>
+      </div>
     </div>
-    <div class="footer-bottom">
-        <p> 2026 Wizz Air Hungary Ltd. Все права защищены.</p>
-    </div>
-</footer>  
+   
+  <script src="./scripts/script.js"></script>
+</body>
 </html>

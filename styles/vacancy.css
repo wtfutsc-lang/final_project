@@ -13,6 +13,7 @@ h1 {
             justify-content: center;
             max-width: 1200px;
             margin: 0 auto;
+            flex-wrap: wrap;
         }
 
         .card {
@@ -35,4 +36,34 @@ h1 {
             flex-grow: 1;
         }
 
-    
+    @media (max-width: 768px) {
+    body {
+        padding: 20px 10px; 
+    }
+
+    h1 {
+        font-size: 24px; 
+        margin-bottom: 25px;
+    }
+
+    .cards-container {
+        flex-direction: column; 
+        gap: 20px; 
+    }
+
+    .card {
+        flex: none;
+        width: 100%; 
+    }
+
+    .card img {
+        height: 200px; 
+        margin-bottom: 15px;
+    }
+
+    .card-text {
+        font-size: 14px; 
+        text-align: left; 
+        padding: 0 15px 15px 15px;
+    }
+}

@@ -1,92 +1,46 @@
-
 const form = document.querySelector('.trip-form');
-const tripType = document.getElementById("one-way");
-const roundTrip = document.getElementById("round-trip");
-const from = document.querySelector(".from-place");
-const to = document.getElementById("to-place");
-const depart = document.getElementById("depart");
-const backDestination = document.getElementById("return");
-const adults = document.getElementById("adults");
-const children = document.getElementById("children");
-const infants = document.getElementById("infants");
-const planeClass = document.getElementById("plane-class");
+const fromPlace = document.getElementById("from");
+const toPlace = document.getElementById("to-place");
+const departDate = document.getElementById("depart");
+const returnDate = document.getElementById("return");
+const adults = parseInt(document.getElementById("adults"));
+const children = parseInt(document.getElementById("children")) ;
+const infants = parseInt(document.getElementById("infants"));
+const travelClass = document.getElementById("plane-class");
 
-form.addEventListener("submit", async (e) => { 
-    e.preventDefault();
+form.addEventListener("submit", (event) => {
+    event.preventDefault();
 
-    // const fd = new FormData(form);
-    
-    
-    // const payload = {
-    //     tripType: tripType.value,
-    //     roundTrip: roundTrip.value,
-    //     from: from.value,
-    //     to: to.value,
-    //     depart: depart.value,
-    //     backDestination: backDestination.value,
-    //     adults: adults.value,
-    //     children: children.value,
-    //     infants: Number(fd.get("infants")), 
-    //     planeClass: planeClass.value
-    // };
+    if (fromPlace.value === toPlace.value) {
+      alert("Город вылета и город назначения не могут совпадать!");
+      return;
+    }
 
-});
+    if (  returnDate.value && returnDate.value < departDate.value) {
+      alert("Дата возвращения не может быть раньше даты вылета!");
+      return;
+    }
 
-
-async function createBooking() {
-    const url = '/booking';
-    
-    const payload = {
-        tripType: tripType.value,
-        roundTrip: roundTrip.value,
-        from: from.value,
-        to: to.value,
-        depart: depart.value,
-        backDestination: backDestination.value,
+    const bookingData = {
+      from: fromPlace.value,
+      to: toPlace.value,
+      depart: departDate.value,
+      return: returnDate .value, 
         adults: adults.value,
         children: children.value,
-        infants: Number(fd.get("infants")), 
-        planeClass: planeClass.value
+        infants: infants.value,
+      travelClass: travelClass.value
+      
     };
 
-    console.log('Check payload data:', payload);
+    let savedBookings = localStorage.getItem("wizzBookings");
+    savedBookings = JSON.parse(savedBookings);
 
-    try {
-      const response = await fetch(url, {
-        method: 'POST', 
-        headers: {
-          'Content-Type': 'application/json' 
-        },
-        body: JSON.stringify(payload) 
-      });
-  
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-  
-      const result = await response.json(); 
-      console.log('Success:', result);
-    } catch (error) {
-      console.error('Error:', error); 
-    }
-  }
-//example GET-request
-async function getData() {
-    const url = "https://example.org/products.json";
-    try {
-      const response = await fetch(url);
-      if (!response.ok) {
-        throw new Error(`Response status: ${response.status}`);
-      }
-  
-      const result = await response.json();
-      console.log(result);
-    } catch (error) {
-      console.error(error.message);
-    }
-  }
-  //     const r = await fetch("/", {
-        //     method: "POST",
-        //     headers: { "Content-Type": "application/json" },
-        //     body: JSON.stringify(payload), 
-        // });
+    savedBookings.push(bookingData);
+
+    localStorage.setItem("wizzBookings", JSON.stringify(savedBookings));
+
+    alert(`Успешно забронировано!`);
+
+    form.reset();
+  });
